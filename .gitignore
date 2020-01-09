@@ -1,0 +1,7 @@
+########
+#ansible.log
+#ansible.cfg
+
+# image #
+################
+image/*
