@@ -2,4 +2,4 @@
 
 Общая схема вот:
 
-![Image description](link-to-image)
+![Schema](https://github.com/Valerych-team/learn/raw/master/img/schema.jpg)
