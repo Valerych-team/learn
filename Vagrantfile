@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
     config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'" # avoids 'stdin: is not a tty' error.
   end
 
-  config.vm.define :f2 do |f1|
+  config.vm.define :f2 do |f2|
     f2.vm.box = "bento/ubuntu-18.04"
     f2.vm.hostname = "f2"
     f2.vm.network 'private_network', ip: "10.0.0.101", auto_config: "false"
@@ -110,16 +110,16 @@ Vagrant.configure("2") do |config|
     config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'" # avoids 'stdin: is not a tty' error.
   end
 
-  config.vm.define :services do |services|
-    services.vm.box = "bento/ubuntu-18.04"
-    services.vm.hostname = "services"
-    services.vm.network 'private_network', ip: "172.16.200.100", auto_config: "false"
+  config.vm.define :service do |service|
+    service.vm.box = "bento/ubuntu-18.04"
+    service.vm.hostname = "service"
+    service.vm.network 'private_network', ip: "172.16.200.100", auto_config: "false"
     config.vm.provider :virtualbox do |vb|
      vb.gui = false
      vb.customize ["modifyvm", :id, "--memory", "512"]
      vb.customize ["modifyvm", :id, "--cpus", "2"]
      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-     vb.name = "services"
+     vb.name = "service"
     end
     config.ssh.forward_agent = true
     config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'" # avoids 'stdin: is not a tty' error.
